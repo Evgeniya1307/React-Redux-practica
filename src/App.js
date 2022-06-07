@@ -1,23 +1,16 @@
-import logo from './logo.svg';
+
+import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 
 function App() {
-  return (
+  // изменить состояние нужен диспатч получить внутри компоненты
+const dispatch = useDispatch()
+  // теперь это состояние получить 
+  const cash =useSelector(state=>state)// параметром принимает фу-ию она принимает состояние 
+
+return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     
     </div>
   );
 }

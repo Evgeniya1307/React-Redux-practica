@@ -21,6 +21,17 @@ const getCash=(cash)=> {
   dispatch({type:'GET_CASH', payload:cash})
 }
 
+// функция при нажатии на кнопку будт добавлять пользователя
+const addCustomer = (name)=> {
+const customer={ // данные объект пользователя
+name,
+id: Dte.now(), // чтобы id был уникальный получу его из текущего времени
+}
+  dispatch({type:'ADD_CUSTOMER'})// прокидываю в диспатч экшен у него есть тип и какие то данные
+
+}
+
+
 return (
     <div className="App">
     <div style={{fontSize:'3rem'}} >{cash}</div>

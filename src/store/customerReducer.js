@@ -6,7 +6,7 @@ const defaultState={
 export const customerReduccer=(state = defaultState,action)=> {
     switch(action.type) {
   case 'ADD_CUSTOMER' :
-     return {...state, cash:state.cash + action.payload}
+     return {...state, customers:[...state.customers, action.payload]}//возвращаю новый объект который разварачиваю старое состояние и так как это добавление пользователя я присваю customers  новый массив который разворачиваю уже существующий массив и к нему в конец добавляю объект который буду передавать через action        
   
   case  'GET_CUSTOMERS' :
      return{...state, cash: state.cash - action.payload}

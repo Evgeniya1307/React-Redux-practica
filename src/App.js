@@ -27,10 +27,27 @@ return (
      <div className={{display:'flex'}}>
      <button onClick={()=>addCash(Number(prompt()))}>Получить счёт</button> 
      <button onClick={()=> getCash()}>Снять со счёта</button>
+     <button onClick={()=>addCash(Number(prompt()))}>Получить счёт</button> 
+     <button onClick={()=> getCash()}>Удалять клиента</button>
+     
+     
      </div>
-<div>
+     
+     {customers.length> 0 ? // на проверку если пустой массив то отобразить какую нибудь надпись если не пуст отрисовать массив клиентов
+     <div>
+     {customers.map(customer=> 
+      <div> {customer.name} </div>
+      )}
+     </div>
+    :
+    <div  style={{fontSize: '2ren', marginTop: 20}}> 
+    Клиенты отсутствуют!
+    </div>
+    
+    }
+     
 
-</div>
+
 
     </div>
   );

@@ -11,7 +11,7 @@ function App() {
 const dispatch = useDispatch()
   // теперь это состояние получить 
   const cash =useSelector(state=>state.cash.cash)// параметром принимает фу-ию она принимает состояние из него получу нужную переменную
-const customers = useSelector(state=> state.cash.cash)// с помощью useSelector получаю массив клиентов банка
+const customers = useSelector(state=> state.customers.customers)// с помощью useSelector получаю массив клиентов банка
 
 const addCash=(cash)=> {
 dispatch({type:'ADD_CASH', payload:cash})//payload:5 сумма на которую хочу увеличить , payload: cash сумму чтобы менять смаой

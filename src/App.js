@@ -27,7 +27,12 @@ const customer={ // данные объект пользователя
 name,
 id: Dte.now(), // чтобы id был уникальный получу его из текущего времени
 }
-  dispatch({type:'ADD_CUSTOMER'})// прокидываю в диспатч экшен у него есть тип и какие то данные
+  dispatch({type:'ADD_CUSTOMER', payload:customer})// прокидываю в диспатч экшен у него есть тип и какие то данные
+
+}
+
+//при нажатии конкретного пользователя и при нажатии будет удаляться
+const removeCustomer = (customer)=> {
 
 }
 
@@ -38,7 +43,7 @@ return (
      <div className={{display:'flex'}}>
      <button onClick={()=>addCash(Number(prompt()))}>Получить счёт</button> 
      <button onClick={()=> getCash()}>Снять со счёта</button>
-     <button onClick={()=>addCash(Number(prompt()))}>Получить счёт</button> 
+     <button onClick={()=>addCustomer(prompt())}>Добавить клиента</button> 
      <button onClick={()=> getCash()}>Удалять клиента</button>
      
      
@@ -47,7 +52,8 @@ return (
      {customers.length> 0 ? // на проверку если пустой массив то отобразить какую нибудь надпись если не пуст отрисовать массив клиентов
      <div>
      {customers.map(customer=> 
-      <div> {customer.name} </div>
+      <div onClick={()=>removeCustomer(customer)} style={{fontSize:'2ren, border: '1px solid black', padding: '10px', marginTop:5}}> 
+      {customer.name} </div>
       )}
      </div>
     :
@@ -57,8 +63,6 @@ return (
     
     }
      
-
-
 
     </div>
   );

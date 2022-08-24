@@ -12,7 +12,7 @@ const REMOVE_CUSTOMERS = 'REMOVE_CUSTOMERS'
 export const customerReduccer=(state = defaultState,action)=> {
     switch(action.type) {
         case ADD_MANY_CUSTOMERS:
-            return {...state, customers:[...state.customers,...state.payload]} //возвращаю новый объект состояния  внего разворачиваю старое состояние в котором изменяю массив customers ему присваиваю новый массив в кором разворачиваю тот массив который есть а затем  развернула тот массив который прилетит от сервера
+            return {...state, customers:[...state.customers,...action.payload]} //возвращаю новый объект состояния  внего разворачиваю старое состояние в котором изменяю массив customers ему присваиваю новый массив в кором разворачиваю тот массив который есть а затем  развернула тот массив который прилетит от сервера
   case 'ADD_CUSTOMER' :
      return {...state, customers:[...state.customers, action.payload]}//возвращаю новый объект который разварачиваю старое состояние и так как это добавление пользователя я присваю customers  новый массив который разворачиваю уже существующий массив и к нему в конец добавляю объект который буду передавать через action        
   

@@ -5,7 +5,7 @@ import {createStore} from 'redux'
 import store from './store/index';
 import { addCustomerAction } from './store/customerReducer';
 import { removeCustomerAction } from './store/customerReducer';
-
+import {fetchCustomers} from './store/asyncActions/customers';
 
 function App() {
   // изменить состояние нужен диспатч получить внутри компоненты
@@ -22,7 +22,7 @@ const getCash=(cash)=> {
   dispatch({type:'GET_CASH', payload:cash})
 }
 
-// функция при нажатии на кнопку будт добавлять пользователя
+// функция при нажатии на кнопку будт добавлять пользователя addCustomer 
 const addCustomer = (name)=> {
 const customer={ // данные объект пользователя
 name,
@@ -46,6 +46,7 @@ return (
      <button onClick={()=> getCash()}>Снять со счёта</button>
      <button onClick={()=>addCustomer(prompt())}>Добавить клиента</button> 
      <button onClick={()=> getCash()}>Удалять клиента</button>
+    <button onClick={()=>dispatch(fetchCustomers()) }>Получить клиентов из базы</button>
      </div>
      
      {customers.length> 0 ? // на проверку если пустой массив то отобразить какую нибудь надпись если не пуст отрисовать массив клиентов
